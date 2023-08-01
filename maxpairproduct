@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdint>
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements in the vector: ";
+    std::cin >> n;
+
+    std::vector<int64_t> vec(n);
+
+    std::cout << "Enter " << n << " elements for the vector: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec[i];
+    }
+
+    // Sort the vector in ascending order
+    std::sort(vec.begin(), vec.end());
+
+    // The maximum product can either be the product of the two largest elements
+    // or the product of the smallest two elements (if the vector contains negative numbers)
+    int64_t maxProduct = std::max(vec[n - 1] * vec[n - 2], vec[0] * vec[1]);
+
+    std::cout << "Maximum product of any pair of elements from the vector: " << maxProduct << std::endl;
+
+    return 0;
+}
