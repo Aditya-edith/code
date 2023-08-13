@@ -1,0 +1,16 @@
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        char ans = 0; // Initialize ans with a value
+
+        for (int i = 0; i < t.size(); i++) {
+            ans ^= t[i]; // XOR operation to find the differing character
+        }
+        
+        for (int i = 0; i < s.size(); i++) {
+            ans ^= s[i]; // XOR operation to cancel out common characters
+        }
+
+        return ans;
+    }
+};
